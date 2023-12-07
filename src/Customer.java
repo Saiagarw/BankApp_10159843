@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 
 public class Customer {
     String customerName, customerEmail, customerAddress, customerGender, customerAadhar, customerPhone;
-    float balance;
+    float balance=0;
 
     public Customer() {
     }
