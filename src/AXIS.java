@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-;public class AXIS implements RBI{
+public class AXIS implements RBI{
 
     int counter=3;
     float rbi_loan_charge=0.02f,rbi_cc_charge=0.01f;
