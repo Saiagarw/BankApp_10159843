@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+package org.example;
 
 public class Customer {
     String customerName, customerEmail, customerAddress, customerGender, customerAadhar, customerPhone;

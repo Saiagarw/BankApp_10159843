@@ -1,18 +1,20 @@
+package org.example;
+
 import java.util.HashMap;
 
-public class SBI implements RBI{
+public class ICICI implements RBI{
 
     int counter=3;
     float rbi_loan_charge=0.02f,rbi_cc_charge=0.01f;
     HashMap<Integer,Float> loan_roi=new HashMap<>();
-    public SBI() {
-        loan_roi.put(1,0.09f);
-        loan_roi.put(2,0.04f);
-        loan_roi.put(3,0.12f);
-        loan_roi.put(4,0.07f);
+    public ICICI() {
+        loan_roi.put(1,0.08f);
+        loan_roi.put(2,0.05f);
+        loan_roi.put(3,0.10f);
+        loan_roi.put(4,0.08f);
     }
 
-    public SBI(float balance) {
+    public ICICI(float balance) {
     }
 
     public float depositMoney(float deposit_money) {

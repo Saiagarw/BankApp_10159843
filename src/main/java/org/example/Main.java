@@ -1,3 +1,5 @@
+package org.example;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -68,34 +70,48 @@ public class Main implements Runnable{
 
         while(true) {
             String Aadhaar="";
-            Customer cust = new Customer();
+            Customer cust=null;
             System.out.println("Welcome to IBS\nPlease select your bank\n1. ICICI\n2. HDFC\n3. SBI\n4. AXIS\n5. IDFC");
-
 
             obj.selectedBank = obj.integer_reader();
             System.out.println("Customer Selected " + obj.selectedBank);
 
-            System.out.println("Please Enter Your Name");
-            cust.setCustomerName(obj.string_reader());
-
-            System.out.println("Please Enter Your Email");
-            cust.setCustomerEmail(obj.string_reader());
-
-            System.out.println("Please Enter Your Address");
-            cust.setCustomerAddress(obj.string_reader());
-
-            System.out.println("Please Enter Your Gender");
-            cust.setCustomerGender(obj.string_reader());
-
             System.out.println("Please Enter Your Aadhaar");
             Aadhaar=obj.string_reader();
-            cust.setCustomerAadhar(Aadhaar);
 
-            System.out.println("Please Enter Your Phone");
-            cust.setCustomerPhone(obj.string_reader());
+            if(obj.customerMap.containsKey(Aadhaar) && obj.customerMap.get(Aadhaar).contains(obj.selectedBank))
+            {
+                for(int i=0;i<obj.bankMap.get(obj.selectedBank).size();i++)
+                {
+                    if(obj.bankMap.get(obj.selectedBank).get(i).customerAadhar.equals(Aadhaar))
+                    {
+                        cust=obj.bankMap.get(obj.selectedBank).get(i);
+                    }
+                }
+            }
+            else{
+                cust=new Customer();
 
-            System.out.println("Please Enter Opening Balance");
-            cust.balance=(Float.parseFloat(obj.string_reader()));
+                cust.setCustomerAadhar(Aadhaar);
+
+                System.out.println("Please Enter Your Name");
+                cust.setCustomerName(obj.string_reader());
+
+                System.out.println("Please Enter Your Email");
+                cust.setCustomerEmail(obj.string_reader());
+
+                System.out.println("Please Enter Your Address");
+                cust.setCustomerAddress(obj.string_reader());
+
+                System.out.println("Please Enter Your Gender");
+                cust.setCustomerGender(obj.string_reader());
+
+                System.out.println("Please Enter Your Phone");
+                cust.setCustomerPhone(obj.string_reader());
+
+                System.out.println("Please Enter Opening Balance");
+                cust.balance=(Float.parseFloat(obj.string_reader()));
+            }
 
             RBI bank=null;
 

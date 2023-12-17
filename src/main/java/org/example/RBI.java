@@ -1,3 +1,5 @@
+package org.example;
+
 interface RBI{
 
     float depositMoney(float deposit_money);
